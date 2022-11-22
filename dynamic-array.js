@@ -20,16 +20,13 @@ class DynamicArray {
   }
 
   push(val) {
-    if (this.length > 0 && this.capacity !== this.length) {
+    if (this.length >= 0 && this.capacity !== this.length) {
       this.data[this.length] = val;
       this.length++;
     } else if (this.length == this.capacity) {
       this.resize();
       this.data[this.length] = val;
       this.length++;
-    } else if (this.length == 0) {
-      this.data[0] = val;
-      this.length++
     }
   }
 
@@ -60,7 +57,7 @@ class DynamicArray {
   }
 
   unshift(val) {
-    if (this.length > 0 && this.length !== this.capacity) {
+    if (this.length >= 0 && this.length !== this.capacity) {
       for (let i=this.length - 1; i>=0; i--) {
         this.data[i + 1] = this.data[i];
       }
@@ -71,9 +68,6 @@ class DynamicArray {
         for (let i=this.length - 1; i>=0; i--) {
           this.data[i + 1] = this.data[i];
         }
-        this.data[0] = val;
-        this.length++;
-    } else if (this.length == 0) {
         this.data[0] = val;
         this.length++;
     }
@@ -94,17 +88,7 @@ class DynamicArray {
       this.data[i] = undefined;
     }
   }
-
 }
-
-
-
-
-
-
-
-
-
 
 
 
